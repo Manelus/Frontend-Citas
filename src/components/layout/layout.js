@@ -7,7 +7,7 @@ function Layout() {
   let navLink = "nav-link";
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <button className="navbar-brand">App</button>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@ function Layout() {
             <li className={liClassName}>
               <NavLink className={({ isActive }) =>
                   isActive ? (navLink + ' ' + activeClassName) : navLink
-              } to="/about">About</NavLink>
+              } to="/about">Nosotros</NavLink>
             </li>
             <li className={liClassName}>
               <NavLink className={({ isActive }) =>
@@ -33,6 +33,16 @@ function Layout() {
               <NavLink className={({ isActive }) =>
                   isActive ? (navLink + ' ' + activeClassName) : navLink
               } to="/login">Login</NavLink>
+            </li>
+            <li className={liClassName}>
+              <NavLink className={({ isActive }) =>
+                  isActive ? (navLink + ' ' + activeClassName) : navLink
+              } to="/register">Register</NavLink>
+            </li>
+            <li className={liClassName}>
+              <NavLink className={({ isActive }) =>
+                  isActive ? (navLink + ' ' + activeClassName) : navLink
+              } to="/registro">Registro Mascotas</NavLink>
             </li>
           </ul>
         </div>

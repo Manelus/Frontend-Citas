@@ -1,10 +1,9 @@
 import React from "react";
 
-
-class Registro extends React.Component {
+class Register extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {nombre: '', tipo: '', raza: '', idUser: '', isRegisted: false};
+      this.state = {nombre: '', apellido: '', mail: '', password: '', isRegisted: false};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -49,17 +48,22 @@ class Registro extends React.Component {
                 <div className="input-group mb-3">
                     <span className="input-group-text bg-primary"><i
                             className="bi bi-person-plus-fill text-white"></i></span>
-                    <input name="nombre" type="text" value={this.state.user} onChange={this.handleChange} placeholder="nombre" required />
+                    <input name="usuario" type="text" value={this.state.user} onChange={this.handleChange} placeholder="nombre" required />
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text bg-primary"><i
                             className="bi bi-person-plus-fill text-white"></i></span>
-                    <input name="tipo" type="text" value={this.state.user} onChange={this.handleChange} placeholder="tipo" required />
+                    <input name="apellido" type="text" value={this.state.user} onChange={this.handleChange} placeholder="apellido" required />
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text bg-primary"><i
                             className="bi bi-person-plus-fill text-white"></i></span>
-                    <input name="raza" type="text" value={this.state.user} onChange={this.handleChange} placeholder="raza" required />
+                    <input name="email" type="text" value={this.state.user} onChange={this.handleChange} placeholder="email" required />
+                </div>
+                <div className="input-group mb-3">
+                    <span className="input-group-text bg-primary"><i
+                            className="bi bi-key-fill text-white"></i></span>
+                    <input name="password" type="password" value={this.state.password} onChange={this.handleChange} placeholder="password"  required />
                 </div>
                
                 <button className="btn btn-primary text-center mt-2" type="submit">
@@ -74,4 +78,4 @@ class Registro extends React.Component {
     }
   }
   
-  export default Registro
+  export default Register

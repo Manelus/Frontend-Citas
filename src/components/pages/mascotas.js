@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 class Mascotas extends React.Component {
-    construct(props) {
+    constructor(props) {
         super(props);
         this.state = {
         items: [],
