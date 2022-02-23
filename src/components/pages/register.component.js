@@ -5,7 +5,7 @@ import AuthService from "../services/auth"
 class Register extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {nombre: '', apellido: '', email: '', password: '', submitDone:false};
+      this.state = {nombre: '', apellido: '', email: '', password: '', submitDone:false, passwordOk:false};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }

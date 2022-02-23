@@ -87,7 +87,7 @@ class ReactBootstrapLogin extends React.Component {
               Please pcheck me out
             </Form.Control.Feedback>
           </Form.Group>*/}
-          <Button variant="primary" type="submit">Submit</Button>
+          <Button variant="primary" type="submit">Aceptar</Button>
         </Form>
       </div>
     );

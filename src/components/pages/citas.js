@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 
 
-const CitasMascota = () => {
+const Citas = () => {
     const {nombre} = useParams()
     return (
         <div>
@@ -12,4 +12,4 @@ const CitasMascota = () => {
     )
 }
 
-export default CitasMascota
+export default Citas

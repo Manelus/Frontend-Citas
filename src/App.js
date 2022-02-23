@@ -17,8 +17,9 @@ import Perfil from "./components/pages/perfil";
 import Mascotas from "./components/pages/mascotas";
 import RegistroMascotas from "./components/pages/registroMascotas";
 import Citas from "./components/pages/citas";
+import NuevaCita from "./components/pages/nuevaCita";
 import NoMatch404 from "./components/pages/404";
-import ReactBootstrapLogin from './components/pages/react-bootstrap-login.component';
+import ReactBootstrapLogin from './components/pages/login.component';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="registro" element={<RegistroMascotas />} />
         {/* citas */}
           <Route path="citas" element={<Citas />} />
+          <Route path="nuevaCita" element={<NuevaCita />} />
         </Route>
       </Routes>
     </div>

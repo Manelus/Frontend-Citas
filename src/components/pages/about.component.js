@@ -6,8 +6,8 @@ const About = () => {
         <div className="text-center">
             <h3 className="text-primary">Nosotros</h3>
         </div>
-        <p>GatiGos Veterinaris va obrir les seves portes a mascotes i propietaris el gener de 1993. Des d’aleshores, gràcies a la confiança que els nostres clients ens han demostrat, hem seguit millorant els nostres serveis veterinaris, invertint en la tecnologia més moderna i en la formació del nostre personal. Tot això sense perdre mai la qualitat humana que ens representa.
-        <br></br>L’equip veterinari de la nostra clínica veterinària de Torredembarra està en constant formació, assistint assíduament a cursos, seminaris i congressos. També estem al dia en matèria de protocols veterinaris i publicacions científiques.</p>
+        <p>GatiGos Veterinaris abrió sus puertas a mascotas y propietarios en enero de 1993. Desde entonces, gracias a la confianza que nuestros clientes nos han demostrado, hemos seguido mejorando nuestros servicios veterinarios, invirtiendo en la tecnología más moderna y en la formación de nuestro personal. Todo esto sin perder nunca la calidad humana que nos representa.
+        El equipo veterinario de nuestra clínica veterinaria de Torredembarra está en constante formación, asistiendo asiduamente a cursos, seminarios y congresos. También estamos al día en materia de protocolos veterinarios y publicaciones científicas.</p>
     </div>
   );
 }
