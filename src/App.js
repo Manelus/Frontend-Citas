@@ -16,8 +16,8 @@ import Register from "./components/pages/register.component";
 import Perfil from "./components/pages/perfil";
 import Mascotas from "./components/pages/mascotas";
 import RegistroMascotas from "./components/pages/registroMascotas";
+import Citas from "./components/pages/citas";
 import NoMatch404 from "./components/pages/404";
-// import SimpleLogin from './components/simple-login.component';
 import ReactBootstrapLogin from './components/pages/react-bootstrap-login.component';
 
 function App() {
@@ -32,11 +32,13 @@ function App() {
           <Route path="login" element={<ReactBootstrapLogin />} />
           <Route path="register" element={<Register />} />
           <Route path="*" element={<NoMatch404 />} />
-        </Route>
-        <Route>
+        {/* usuarios */}
           <Route path="perfil" element={<Perfil />} />
+        {/* mascotas */}
           <Route path="mascotas" element={<Mascotas />} />
           <Route path="registro" element={<RegistroMascotas />} />
+        {/* citas */}
+          <Route path="citas" element={<Citas />} />
         </Route>
       </Routes>
     </div>

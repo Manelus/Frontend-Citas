@@ -11,7 +11,7 @@ class Perfil extends React.Component {
         }
     }
     componentDidMount() {
-        axios('http://localhost:3000/usuaros')
+        axios('http://localhost:3000/usuarios')
         .then(response => {
         this.setState({items: response.data, isLoaded: true})
         })

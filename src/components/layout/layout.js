@@ -39,11 +39,7 @@ function Layout() {
                   isActive ? (navLink + ' ' + activeClassName) : navLink
               } to="/register">Register</NavLink>
             </li>
-            <li className={liClassName}>
-              <NavLink className={({ isActive }) =>
-                  isActive ? (navLink + ' ' + activeClassName) : navLink
-              } to="/registro">Registro Mascotas</NavLink>
-            </li>
+            
           </ul>
         </div>
       </nav>
