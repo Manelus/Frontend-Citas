@@ -15,6 +15,7 @@ import Home from "./components/nav-bar/home";
 import Register from "./components/nav-bar/register";
 import NoMatch404 from "./components/nav-bar/404";
 import Login from './components/nav-bar/login';
+import Logout from './components/nav-bar/logout';
 import Perfil from "./components/pages/perfil";
 import Mascotas from "./components/pages/mascotas";
 import RegistroMascotas from "./components/pages/registroMascotas";
@@ -32,10 +33,11 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
+          <Route path="logout" element={<Logout />} />
           <Route path="register" element={<Register />} />
           <Route path="*" element={<NoMatch404 />} />
         {/* usuarios */}
-          <Route path="perfil" element={<Perfil />} />
+          <Route path="perfil/:id/:token" element={<Perfil />} />
         {/* mascotas */}
           <Route path="mascotas" element={<Mascotas />} />
           <Route path="registro" element={<RegistroMascotas />} />

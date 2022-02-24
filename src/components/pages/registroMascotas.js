@@ -9,7 +9,6 @@ class nuevaMascota extends React.Component {
     }
     
     handleChange(event) {
-      // console.log(event.target.name, event.target.value)
       this.setState({[event.target.name]: event.target.value});
     }
   
@@ -17,7 +16,6 @@ class nuevaMascota extends React.Component {
       e.preventDefault();
   
       if (!this.state.user || !this.state.password) {
-        console.log('fields required!!!');
       } else {
         this.setState({isRegisted: true});
         setTimeout(() => {
