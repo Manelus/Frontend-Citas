@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom"
-import AuthService from "../services/auth"
+import axios from "axios";
+import { Button } from "react-bootstrap";
 
 class Register extends React.Component {
     constructor(props) {
@@ -9,29 +10,33 @@ class Register extends React.Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
     handleChange(event) {
-      // console.log(event.target.name, event.target.value)
+      console.log(event.target.name, event.target.value)
       this.setState({[event.target.name]: event.target.value});
     }
   
     handleSubmit(e) {
       e.preventDefault();
-  
-      if (this.state.passwordOk !== this.state.password) return (
-        this.setState({passwordOk: true})
-      )
-      console.log('Submitted!')
-      console.log(this.state.nombre, this.state.apellido, this.state.email, this.state.password)
-      AuthService.registrar(
-          this.state.nombre,
-          this.state.apellido,
-          this.state.email,
-          this.state.contrasenya
-      ).then(this.setState({ submitDone:true }))
+     
+      axios.post('http://localhost:4000/usuarios/register',{
+        nombre: this.state.nombre,
+        apellido: this.state.apellido,
+        email: this.state.email,
+        password: this.state.password
+      })
+      .then(response => {
+      this.setState({items: response.data, submitDone: true, isLoaded: true})
+      })
+      .catch(error => {
+      this.setState({
+          isLoaded: true,
+          error
+      })
+      })
     }
   
-    render(){
+    render(){ 
       return (
           <div className="h-75 pb-5 d-flex flex-column align-items-between justify-content-center">
               <div>
@@ -55,10 +60,9 @@ class Register extends React.Component {
                               <input className="col-6" name="password" type='password' required value={this.state.password} onChange={this.handleChange} />
                           </label>
                       </div>
-                      <button className="mt-5" type="submit">Acceder</button>
+                      <Button className="primary" type="submit">Registrarse</Button>
                   </form>
-                  {this.state.submitDone && <Navigate to='/perfil'/>}
-
+                  {this.state.submitDone &&<Navigate to="/Login" replace={true} />}
               </div>
           </div>
       )

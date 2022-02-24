@@ -1,15 +1,14 @@
 import React from "react";
-
-import { Form, Button } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
+import axios from "axios";
+import { Form, Button } from "react-bootstrap";
 
-class ReactBootstrapLogin extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { user: "", password: "", isLoading: false, isLogged: false, validated: false };
+    this.state = { user: "", password: "", isLoading: false, isLogged: false, validated: false, submitDone: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleValidated = this.handleValidated.bind(this);
   }
 
   handleChange(event) {
@@ -23,29 +22,23 @@ class ReactBootstrapLogin extends React.Component {
       event.preventDefault();
       event.stopPropagation();
       this.setState({validated: true});
+      axios.get('http://localhost:4000/usuarios/login',{
+        email: this.state.email,
+        password: this.state.password
+      })
+    .then(response => {
+    this.setState({items: response.data, isLoaded: true, submitDone: true})
+    })
+    .catch(error => {
+    this.setState({
+        isLoaded: true,
+        error
+    })
+    })
+  
     } else {
       this.setState({ isLoading: true });
-      setTimeout(() => {
-        this.setState({ isLoading: false });
-        this.setState({ isLogged: true });
-        console.log("submitted!!!!");
-        //console.log(this.state);
-      }, 3000);
     }
-
-    
-    
-    /*if (!this.state.user || !this.state.password) {
-      console.log("fields required!!!");
-    } else {
-      this.setState({ isLoading: true });
-      setTimeout(() => {
-        this.setState({ isLoading: false });
-        this.setState({ isLogged: true });
-        console.log("submitted!!!!");
-        console.log(this.state);
-      }, 3000);
-    }*/
   }
 
   render() {
@@ -64,8 +57,8 @@ class ReactBootstrapLogin extends React.Component {
         </div>
         <Form noValidate onSubmit={this.handleSubmit} validated={this.state.validated}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" required />
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" placeholder="email" required />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -81,17 +74,12 @@ class ReactBootstrapLogin extends React.Component {
               Please provide a password.
             </Form.Control.Feedback>
           </Form.Group>
-          {/*<Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-            <Form.Control.Feedback type="invalid">
-              Please pcheck me out
-            </Form.Control.Feedback>
-          </Form.Group>*/}
           <Button variant="primary" type="submit">Aceptar</Button>
         </Form>
+        {this.state.submitDone && <Navigate to="/Perfil" replace={true}/>}
       </div>
     );
   }
 }
 
-export default ReactBootstrapLogin;
+export default Login;
