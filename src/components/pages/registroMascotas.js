@@ -1,28 +1,37 @@
 import React from "react";
+import { Navigate } from "react-router-dom"
+import axios from "axios";
 
-class nuevaMascota extends React.Component {
+
+class Register extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {nombre: '', tipo: '', raza: '', isRegisted: false};
+      this.state = {nombre: '', tipo: '', raza: '', submitDone:false, isLoaded: false};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
     handleChange(event) {
       this.setState({[event.target.name]: event.target.value});
     }
   
     handleSubmit(e) {
       e.preventDefault();
-  
-      if (!this.state.user || !this.state.password) {
-      } else {
-        this.setState({isRegisted: true});
-        setTimeout(() => {
-          this.setState({isRegisted: false})
-        }, 3000)
-        
-      }
+     
+      axios.post('http://localhost:4000/usuarios/register',{
+        nombre: this.state.nombre,
+        apellido: this.state.tipo,
+        email: this.state.raza
+      })
+      .then(response => {
+      this.setState({items: response.data, submitDone: true, isLoaded: true})
+      })
+      .catch(error => {
+      this.setState({
+          isLoaded: true,
+          error
+      })
+      })
     }
   
     render() {
@@ -54,4 +63,4 @@ class nuevaMascota extends React.Component {
   }
 }
   
-  export default nuevaMascota
+  export default Register
